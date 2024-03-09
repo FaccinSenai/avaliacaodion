@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #0f0624;
+    background-color: #08070c;
     margin: 0;
     padding: 0;
     display: flex;
@@ -10,7 +10,8 @@ body {
 }
 
 .container {
-    background-color: #fff;
+    color: white;
+    background-color: #0f0624;
     border-color: #3f68d8;
     border-bottom-left-radius: 10px;
     padding: 20px;
@@ -37,74 +38,5 @@ label {
 input {
     padding: 10px;
     font-size: 14px;
-}
-
-.forca-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-}
-
-.forca {
-    width: 300px;
-    height: 20px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    position: relative;
-}
-
-.barra {
-    height: 100%;
-    width: 0;
-    background-color: #ccc;
-    transition: width 0.3s ease;
-    border-radius: 10px;
-}
-
-.barra-0{
-    background-color: black;
-}
-.barra-1 {
-    background-color: #ff6347;
-}
-
-.barra-2 {
-    background-color: #ffd700;
-}
-
-.barra-3 {
-    background-color: #7cfc00;
-}
-
-.barra-4 {
-    background-color: #008000;
-}
-
-.barra-5 {
-    background-color: #3f68d8;
-}
-
-.forca-0{
-    background-color: black;
-}
-.forca-1 {
-    background-color: #ff6347;
-}
-
-.forca-2 {
-    background-color: #ffd700;
-}
-
-.forca-3 {
-    background-color: #7cfc00;
-}
-
-.forca-4 {
-    background-color: #008000;
-}
-
-.forca-5 {
-    background-color: #3f68d8;
 }
 

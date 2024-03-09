@@ -58,30 +58,24 @@ function generatePassword() {
         alert("Senha invalida, sem tamanho.")
     }
 
-    function alterarCorbarra(nivel) {
-        var barraForca = document.getElementById('barraForca');
-        console.log(barraForca)
-        barraForca.classList.remove('forca-1', 'forca-2', 'forca-3', 'forca-4', 'forca-5');
-        barraForca.classList.remove('barra-1', 'barra-2', 'barra-3', 'barra-4', 'barra-5');
-        
-        barraForca.classList.add('forca-' + nivel);
-        barraForca.classList.add('barra-' + nivel);
+    if(forcadasenha < 0){
+        forcadasenha = 0
     }
+ 
     console.log(forcadasenha)
-    if(forcadasenha == 100){
-        alterarCorbarra(5)
-        
-    }else if(forcadasenha > 80 && forcadasenha <= 100){
-        alterarCorbarra(4)
-    }else if(forcadasenha < 80 && forcadasenha >= 60){
-        alterarCorbarra(3)
-    }else if(forcadasenha < 60 && forcadasenha >= 40){
-        alterarCorbarra(2)
-    }else if(forcadasenha < 40 && forcadasenha >=20){
-        alterarCorbarra(1)
-    }else{
-        alterarCorbarra(0)
-    }
+    var forcaSpan = document.getElementById("forcadasenha");
+    var label = document.getElementById("senhaLabel");
+    forcaSpan.textContent = forcadasenha;
+    if (forcadasenha < 34) {
+        label.style.color = 'red';
+
+      } else if (forcadasenha > 34 && forcadasenha < 67) {
+        label.style.color = 'yellow';
+
+      } else {
+        label.style.color = 'green';
+
+      }
 }
 
 if (MAINBUTTON) {
