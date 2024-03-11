@@ -1,9 +1,10 @@
 const MAINBUTTON = document.getElementById("generateButton");
 const copybutton = document.getElementById("copypassword");
+
 function generatePassword() {
-    console.log("conta")
-    var forcadasenha = 0
-    var gerada = document.getElementById("generatedpass")
+    console.log("conta");
+    var forcadasenha = 0;
+    var gerada = document.getElementById("generatedpass");
     const length = document.getElementById("passLength").value;
     const b1 = document.getElementById("checkbox1").checked;
     const b2 = document.getElementById("checkbox2").checked;
@@ -17,27 +18,27 @@ function generatePassword() {
 
     if (b1) {
         charset += char;
-        forcadasenha += 20
+        forcadasenha += 20;
     }
     if (b2) {
         charset += charm;
-        forcadasenha += 20
+        forcadasenha += 20;
     }
 
     if (b3) {
         charset += numbers;
-        forcadasenha += 20
+        forcadasenha += 20;
     }
 
     if (b4) {
         charset += symbols;
-        forcadasenha += 20
+        forcadasenha += 20;
     }
 
-    if(!b1 && !b2 && !b3 && !b4){
-        alert("Senha invalida, selecione alguma opção.")
+    if (!b1 && !b2 && !b3 && !b4) {
+        alert("Senha inválida, selecione alguma opção.");
     }
-    
+
     let password = "";
 
     for (let i = 0; i < length; i++) {
@@ -46,52 +47,49 @@ function generatePassword() {
     }
 
     console.log(password);
-    gerada.value = password
 
-    if(password.length > 10){
-        forcadasenha += 20
-    }else if(password.length > 6){
-        forcadasenha += 0
-    }else if(password.length < 6 && password.length > 0){
-        forcadasenha += -50
-    }else{
-        alert("Senha invalida, sem tamanho.")
+    if (password.length > 10) {
+        forcadasenha += 20;
+    } else if (password.length > 6) {
+        forcadasenha += 0;
+    } else if (password.length < 6 && password.length > 0) {
+        forcadasenha += -50;
+    } else {
+        alert("Senha inválida, sem tamanho.");
     }
 
-    if(forcadasenha < 0){
-        forcadasenha = 0
+    if (forcadasenha < 0) {
+        forcadasenha = 0;
     }
- 
-    console.log(forcadasenha)
+
+    console.log(forcadasenha);
+
     var forcaSpan = document.getElementById("forcadasenha");
     var label = document.getElementById("senhaLabel");
     forcaSpan.textContent = forcadasenha;
+
     if (forcadasenha < 34) {
-        label.style.color = 'red';
+        label.style.color = "red";
+    } else if (forcadasenha > 34 && forcadasenha < 67) {
+        label.style.color = "yellow";
+    } else {
+        label.style.color = "green";
+    }
 
-      } else if (forcadasenha > 34 && forcadasenha < 67) {
-        label.style.color = 'yellow';
-
-      } else {
-        label.style.color = 'green';
-
-      }
+    gerada.value = b1 || b2 || b3 || b4 ? password : "";
 }
 
 if (MAINBUTTON) {
     MAINBUTTON.addEventListener("onclick", generatePassword);
 }
 
-function copy(){
+function copy() {
     var copyText = document.getElementById("generatedpass");
     copyText.select();
     navigator.clipboard.writeText(copyText.value);
     alert("Copied the text: " + copyText.value);
-
 }
 
-if(copybutton){
+if (copybutton) {
     copybutton.addEventListener("click", copy);
-
 }
-
