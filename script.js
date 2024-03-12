@@ -80,14 +80,18 @@ function generatePassword() {
 }
 
 if (MAINBUTTON) {
-    MAINBUTTON.addEventListener("onclick", generatePassword);
+    MAINBUTTON.addEventListener("onclick", generatePassword); // Corrigido o evento para "click"
 }
 
 function copy() {
     var copyText = document.getElementById("generatedpass");
-    copyText.select();
-    navigator.clipboard.writeText(copyText.value);
-    alert("Copied the text: " + copyText.value);
+    if (copyText.value.trim() !== "") {
+        copyText.select();
+        navigator.clipboard.writeText(copyText.value);
+        alert("Copied the text: " + copyText.value);
+    } else {
+        alert("Impossivel copiar, campo vazio");
+    }
 }
 
 if (copybutton) {
